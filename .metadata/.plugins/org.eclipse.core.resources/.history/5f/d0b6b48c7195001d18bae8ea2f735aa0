@@ -1,0 +1,16 @@
+package com.example.demo.consumer;
+
+import org.apache.kafka.clients.consumer.Consumer;
+import org.springframework.integration.annotation.ServiceActivator;
+import org.springframework.messaging.Message;
+import org.springframework.stereotype.Service;
+
+@Service
+public class KafkaConsumerSI {
+
+	@ServiceActivator(inputChannel = "consumerChannel")
+	public void method(Message<String> value)
+	{
+		System.out.println("spring integration"+value.getPayload());
+	}
+}

@@ -1,0 +1,55 @@
+package com.example.demo.consumer;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.core.ConsumerFactory;
+import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
+import org.springframework.kafka.listener.ContainerProperties;
+
+@Configuration
+public class EventConsumer {
+
+	
+//	private @NonNull final RcxKafkaProperties rcxKafkaProperties;
+	@Autowired
+	KafkaConfig kafkaConfig;
+	//private @NonNull final RcxDefaultErrorHandler rcxDefaultErrorHandler;
+
+	@Bean
+	//@Qualifier("kafkaMessageDrivenChannelAdapter")
+	public ConcurrentMessageListenerContainer<String, String> kafkaMessageDrivenChannelAdapter() {
+
+		ContainerProperties containerProps =
+		        new ContainerProperties("mgmplat-comp-example");
+		
+		Map<String, Object> consumerProperties = kafkaConfig.consumerProperties();
+	    ConsumerFactory<?, ?> consumerFactory = new DefaultKafkaConsumerFactory<>(consumerProperties);
+	    @SuppressWarnings("unchecked")
+	    ConcurrentMessageListenerContainer<String, String> kafkaListenerContainer =
+	        (ConcurrentMessageListenerContainer<String, String>) new ConcurrentMessageListenerContainer<>(
+	            consumerFactory, containerProps);
+
+//	    kafkaListenerContainer.setConcurrency(rcxKafkaProperties.getNumOfConcurrencyThreads());
+//	    kafkaListenerContainer.setCommonErrorHandler(rcxDefaultErrorHandler.getErrorHandler());
+//	    kafkaListenerContainer.getContainerProperties().setAckMode(AckMode.MANUAL_IMMEDIATE);
+	    
+	    return kafkaListenerContainer;
+
+//	    KafkaMessageDrivenChannelAdapter<String, String> kafkaMessageDrivenChannelAdapter =
+//	        new KafkaMessageDrivenChannelAdapter<>(kafkaListenerContainer);
+//	    
+//	    if(rcxKafkaProperties.isInstantReplay()) {
+//	    	kafkaMessageDrivenChannelAdapter.setOutputChannel(instantReplayChannel);
+//	    } else {
+//	    	kafkaMessageDrivenChannelAdapter.setOutputChannel(cdcEventChannel);
+//	    }
+//	    
+//	    kafkaMessageDrivenChannelAdapter.setErrorChannelName(RcxConstants.ERROR_CHANNEL_NAME);
+//	    return kafkaMessageDrivenChannelAdapter;
+	}
+
+}

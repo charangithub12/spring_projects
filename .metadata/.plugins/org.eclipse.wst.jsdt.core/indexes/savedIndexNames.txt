@@ -1,0 +1,1 @@
+INDEX VERSION 1.4+/home/mgadam/Documents/workspace-spring-tool-suite-4-4.15.1.RELEASE/SpringBoot/TestingInSpringBoot/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes

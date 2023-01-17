@@ -1,0 +1,8 @@
+FROM openjdk:17
+EXPOSE 5006
+
+WORKDIR /home/rcx/kafka-trails
+ADD target/springboot-docker.jar springboot-docker.jar
+COPY /kafka.server.truststore.jks /home/rcx/kafka-trails/kafka.server.truststore.jks
+COPY /kafka-client-keystore.jks /home/rcx/kafka-trails/kafka-client-keystore.jks
+ENTRYPOINT ["java","-jar","/springboot-docker.jar"]

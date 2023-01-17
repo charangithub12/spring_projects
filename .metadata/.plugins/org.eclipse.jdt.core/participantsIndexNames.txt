@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+/home/mgadam/Documents/workspace-spring-tool-suite-4-4.15.1.RELEASE/SpringBoot/TestingInSpringBoot/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/574041244.index
+/KafkaProject/src/main/java
+/home/mgadam/Documents/workspace-spring-tool-suite-4-4.15.1.RELEASE/SpringBoot/TestingInSpringBoot/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2992441199.index
+/kafka-producer-wikimedia/src/main/resources

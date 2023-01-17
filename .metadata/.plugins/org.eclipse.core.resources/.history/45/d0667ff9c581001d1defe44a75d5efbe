@@ -1,0 +1,5 @@
+FROM openjdk:17
+EXPOSE 5006
+ADD target/springboot-docker.jar springboot-docker.jar
+COPY /kafka.server.truststore.jks /kafka.server.truststore.jks
+ENTRYPOINT ["java","-jar","/springboot-docker.jar"]

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 2 elements to &apos;kafka-producer-consumer&apos;&#x0A;- Original project: &apos;kafka-producer-consumer&apos;&#x0A;- Destination element: &apos;kafka-producer-consumer&apos;&#x0A;- Original elements:&#x0A;     kafka.server.truststore.jks&#x0A;     kafka-client-keystore.jks&#x0A;- Update references to refactored element" description="Move files" destination="=kafka-producer-consumer" element1="src/main/resources/kafka.server.truststore.jks" element2="src/main/resources/kafka-client-keystore.jks" files="2" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1671536400817" units="0" version="1.0"/>
+</session>

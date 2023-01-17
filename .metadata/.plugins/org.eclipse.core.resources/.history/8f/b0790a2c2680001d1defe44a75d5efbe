@@ -1,0 +1,43 @@
+package com.example.demo.consumer;
+@Configuration
+@RequiredArgsConstructor
+public class EventConsumer {
+
+	private @NonNull final @Qualifier(RcxConstants.CDC_EVENT_CHANNEL) MessageChannel cdcEventChannel;
+	private @NonNull final @Qualifier(RcxConstants.INSTANT_REPLAY_CHANNEL) MessageChannel instantReplayChannel;
+	private @NonNull final RcxKafkaProperties rcxKafkaProperties;
+	private @NonNull final KafkaConfig kafkaConfig;
+	private @NonNull final RcxDefaultErrorHandler rcxDefaultErrorHandler;
+
+	@Bean
+	@Qualifier("kafkaMessageDrivenChannelAdapter")
+	public KafkaMessageDrivenChannelAdapter<String, String> kafkaMessageDrivenChannelAdapter() {
+
+		ContainerProperties containerProps =
+		        new ContainerProperties(rcxKafkaProperties.getInputTopic());
+		
+		Map<String, Object> consumerProperties = kafkaConfig.consumerProperties();
+	    ConsumerFactory<?, ?> consumerFactory = new DefaultKafkaConsumerFactory<>(consumerProperties);
+	    @SuppressWarnings("unchecked")
+	    ConcurrentMessageListenerContainer<String, String> kafkaListenerContainer =
+	        (ConcurrentMessageListenerContainer<String, String>) new ConcurrentMessageListenerContainer<>(
+	            consumerFactory, containerProps);
+
+	    kafkaListenerContainer.setConcurrency(rcxKafkaProperties.getNumOfConcurrencyThreads());
+	    kafkaListenerContainer.setCommonErrorHandler(rcxDefaultErrorHandler.getErrorHandler());
+	    kafkaListenerContainer.getContainerProperties().setAckMode(AckMode.MANUAL_IMMEDIATE);
+
+	    KafkaMessageDrivenChannelAdapter<String, String> kafkaMessageDrivenChannelAdapter =
+	        new KafkaMessageDrivenChannelAdapter<>(kafkaListenerContainer);
+	    
+	    if(rcxKafkaProperties.isInstantReplay()) {
+	    	kafkaMessageDrivenChannelAdapter.setOutputChannel(instantReplayChannel);
+	    } else {
+	    	kafkaMessageDrivenChannelAdapter.setOutputChannel(cdcEventChannel);
+	    }
+	    
+	    kafkaMessageDrivenChannelAdapter.setErrorChannelName(RcxConstants.ERROR_CHANNEL_NAME);
+	    return kafkaMessageDrivenChannelAdapter;
+	}
+
+}

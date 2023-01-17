@@ -1,0 +1,10 @@
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="com.example.demo.model.Employee"><rhs name\="com.example.demo.model.Employee"/></lhs><lhs name\="org.testcontainers.containers.JdbcDatabaseContainer"><rhs name\="org.testcontainers.containers.MySQLContainer"/></lhs><lhs name\="org.testcontainers.containers.traits.LinkableContainer"><rhs name\="org.testcontainers.containers.MySQLContainer"/></lhs><lhs name\="org.testcontainers.containers.GenericContainer"><rhs name\="org.testcontainers.containers.MySQLContainer"/></lhs><lhs name\="org.testcontainers.containers.Container"><rhs name\="org.testcontainers.containers.MySQLContainer"/></lhs><lhs name\="org.testcontainers.containers.ContainerState"><rhs name\="org.testcontainers.containers.MySQLContainer"/></lhs><lhs name\="java.lang.AutoCloseable"><rhs name\="org.testcontainers.containers.MySQLContainer"/></lhs><lhs name\="org.testcontainers.containers.wait.strategy.WaitStrategyTarget"><rhs name\="org.testcontainers.containers.MySQLContainer"/></lhs><lhs name\="org.testcontainers.lifecycle.Startable"><rhs name\="org.testcontainers.containers.MySQLContainer"/></lhs><lhs name\="org.testcontainers.containers.FailureDetectingExternalResource"><rhs name\="org.testcontainers.containers.MySQLContainer"/></lhs><lhs name\="org.junit.rules.TestRule"><rhs name\="org.testcontainers.containers.MySQLContainer"/></lhs><lhs name\="org.testcontainers.containers.MySQLContainer"><rhs name\="org.testcontainers.containers.MySQLContainer"/></lhs></history>
+content_assist_number_of_computers=21
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.formatterprofiles.version=22
+spelling_locale_initialized=true
+typefilter_migrated_2=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

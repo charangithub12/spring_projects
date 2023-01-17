@@ -1,0 +1,12 @@
+version: '2'
+services:
+    kafka-docker:
+        container_name: kafka-docker
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        image: sbimg2
+        ports:
+            - 5008:5005
+        
+    
